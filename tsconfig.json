@@ -8,6 +8,16 @@
     },
     {
       "path": "./packages/ui"
+    },
+    {
+      "path": "./packages/feat-create-orders"
     }
-  ]
+  ],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs",
+      "moduleResolution": "node10",
+      "customConditions": null
+    }
+  }
 }
