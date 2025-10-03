@@ -16,7 +16,7 @@ export function Button({
       className={`${styles['button']} ${styles[variant]} ${className || ''}`}
       {...props}
     >
-      {children}
+      {children}!
     </button>
   );
 }

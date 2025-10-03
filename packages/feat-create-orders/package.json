@@ -13,5 +13,36 @@
   },
   "dependencies": {
     "@storybooknx/ui": "workspace:*"
+  },
+  "nx": {
+    "targets": {
+      "storybook": {
+        "dependsOn": [
+          "^build",
+          "watch-deps"
+        ]
+      },
+      "build-deps": {
+        "dependsOn": [
+          "^build"
+        ],
+        "configurations": {},
+        "options": {},
+        "parallelism": true,
+        "executor": "nx:noop"
+      },
+      "watch-deps": {
+        "continuous": true,
+        "dependsOn": [
+          "build-deps"
+        ],
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "pnpm exec nx watch --projects @storybooknx/feat-create-orders --includeDependentProjects -- pnpm exec nx build-deps @storybooknx/feat-create-orders"
+        },
+        "configurations": {},
+        "parallelism": true
+      }
+    }
   }
 }
